@@ -1,18 +1,36 @@
-import { Container, SimpleGrid, Heading, Textarea, Button, Text, HStack, Box } from "@chakra-ui/react";
+import { Container, SimpleGrid, Heading, Textarea, Button, Text, HStack, Box, Select } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Index = () => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
+  const [sourceLanguage, setSourceLanguage] = useState("en");
+  const [targetLanguage, setTargetLanguage] = useState("es");
 
   const handleTranslate = () => {
     // Placeholder for translation logic
-    setTranslatedText("Translated text will appear here.");
+    setTranslatedText(`Translated text from ${sourceLanguage} to ${targetLanguage} will appear here.`);
   };
 
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <Heading as="h1" size="xl" mb={4}>Machine Translation UI</Heading>
+      <HStack spacing={4} mb={4}>
+        <Select value={sourceLanguage} onChange={(e) => setSourceLanguage(e.target.value)} placeholder="Select source language">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="zh">Chinese</option>
+        </Select>
+        <Select value={targetLanguage} onChange={(e) => setTargetLanguage(e.target.value)} placeholder="Select target language">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="zh">Chinese</option>
+        </Select>
+      </HStack>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} width="100%">
         <Textarea
           placeholder="Enter text to translate"
