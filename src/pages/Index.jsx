@@ -38,6 +38,7 @@ const Index = () => {
           onChange={(e) => setInputText(e.target.value)}
           size="md"
           fontSize="lg"
+          p={4}
         />
         <Box width="100%" p={4} borderWidth="1px" borderRadius="lg" bg="gray.50">
           <Text fontSize="lg" color="gray.700">{translatedText}</Text>
