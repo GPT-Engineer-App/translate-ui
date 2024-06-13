@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Heading, Textarea, Button, Text, HStack } from "@chakra-ui/react";
+import { Container, SimpleGrid, Heading, Textarea, Button, Text, HStack, Box } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Index = () => {
@@ -20,9 +20,9 @@ const Index = () => {
           onChange={(e) => setInputText(e.target.value)}
           size="md"
         />
-        <HStack width="100%" justifyContent="center">
-          <Text fontSize="lg">{translatedText}</Text>
-        </HStack>
+        <Box width="100%" p={4} borderWidth="1px" borderRadius="lg" bg="gray.50">
+          <Text fontSize="lg" color="gray.700">{translatedText}</Text>
+        </Box>
       </SimpleGrid>
       <Button colorScheme="blue" onClick={handleTranslate} mt={4}>Translate</Button>
     </Container>
